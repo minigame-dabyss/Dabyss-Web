@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% load markdownx %}
+
+{% block content %}
+ゲーム紹介
+{% for game in object_list %}
+<h5>{{ game.title }}</h5>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% load markdownx %}
+
+{% block content %}
+記事
+{% for blog in object_list %}
+<a href="{% url 'articles:blogdetail' blog.pk %}"><h5>{{ blog.title }}</h5></a>
+{% endfor %}
+
+
+{% endblock %}

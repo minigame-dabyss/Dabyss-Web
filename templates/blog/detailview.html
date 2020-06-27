@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% load markdownx %}
+
+{% block content %}
+
+<h5>{{ blog.title }}</h5>
+<p>{{ blog.text | markdown_to_html }}</p>
+
+{% endblock %}

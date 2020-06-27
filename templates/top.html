@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col pl-5 pr-5">
+      <div class="row"><h1 style="color: #006766; font-weight: bold;">Save our Talk</h1></div>
+      <div class="col p-5" style="color:slategray;">
+          <p>Text. Long long text.
+              Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on.Mission of the team, vision, value and so on. 
+          </p>
+          {% for post in object_list %}
+          {{ post.text }}
+          {% endfor %}
+      </div>      
+  </div>
+</div>
+
+{% endblock %}
