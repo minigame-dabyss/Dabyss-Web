@@ -19,15 +19,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
+
 # SECURITY WARNING: keep the secret key used in production secret!
 try:
     from .local_settings import *
 except ImportError:
     pass
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+if not DEBUG:
+    SECRET_KEY = os.environ['SECRET_KEY']
+    
 ALLOWED_HOSTS = ["*"]
 
 
@@ -137,6 +141,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
