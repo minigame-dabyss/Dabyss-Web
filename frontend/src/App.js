@@ -1,30 +1,18 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
+import axios from "axios";
 
 const App = () => {
-  const posts = [
-    {
-      id: 1,
-      title: "仮データ1",
-      description: "仮テキストです。",
-    },
-    {
-      id: 2,
-      title: "仮データ2",
-      description: "仮テキストです。仮テキストです。",
-    },
-    {
-      id: 3,
-      title: "仮データ3",
-      description: "仮テキストです。仮テキストです。仮テキストです。",
-    },
-  ];
-
+  const [articles, setArticles] = useState([]);
+  useEffect(async () => {
+    const res = await axios.get("http://localhost:8000/api/articles/");
+    setArticles(res.data);
+  }, []);
   return (
     <Fragment>
-      {posts.map((post) => (
-        <div key={post.id}>
-          <h1>{post.title}</h1>
-          <p>{post.description}</p>
+      {articles.map((article) => (
+        <div>
+          <h1>{article.title}</h1>
+          <p>{article.text}</p>
         </div>
       ))}
     </Fragment>
