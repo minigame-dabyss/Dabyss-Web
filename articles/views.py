@@ -1,3 +1,7 @@
+from rest_framework import generics
+
+from .serializers import BlogArticleSerializer
+
 from django.shortcuts import render
 from .models import BlogArticle, HomeArticle, GamesArticle
 from django.views.generic import ListView, DetailView
@@ -27,3 +31,13 @@ class BlogDetailView(DetailView):
 class GameListView(ListView):
     template_name = "games/listview.html"
     model = GamesArticle
+
+
+class BlogListView(generics.ListCreateAPIView):
+    queryset = BlogArticle.objects.all()
+    serializer_class = BlogArticleSerializer
+
+
+class BlogDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = BlogArticle.objects.all()
+    serializer_class = BlogArticleSerializer
