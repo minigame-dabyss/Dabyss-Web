@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'markdownx',
     'articles',
     'rest_framework',  # 追加
+    'corsheaders',  # 追加
 ]
 # 追加
 REST_FRAMEWORK = {
@@ -65,6 +66,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # 追加
+    'corsheaders.middleware.CorsMiddleware',  # 追加
+    'django.middleware.common.CommonMiddleware',  # 追加
+]
+# 追加
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000'
 ]
 
 ROOT_URLCONF = 'web.urls'
