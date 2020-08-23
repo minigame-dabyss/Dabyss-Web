@@ -1,6 +1,5 @@
 from rest_framework import generics
 
-from .models import BlogArticle
 from .serializers import BlogArticleSerializer
 
 from django.shortcuts import render
