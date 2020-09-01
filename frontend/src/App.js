@@ -1,9 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import axios from "axios";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+
+import Header from "./components/Header";
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -13,17 +11,7 @@ const App = () => {
   }, []);
   return (
     <div>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography>
-            <img src="./logo_Dabyss.png" width="50px" height="50px" />
-            MinigameDabyss
-          </Typography>
-          <Button color="inherit">ゲーム一覧</Button>
-          <Button color="inherit">ブログ</Button>
-          <Button color="inherit">お問い合わせ</Button>
-        </Toolbar>
-      </AppBar>
+      <Header></Header>
       <Fragment>
         {articles.map((article) => (
           <div>
