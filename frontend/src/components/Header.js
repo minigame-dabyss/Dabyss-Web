@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
+import { AppBar, Toolbar, Typography, Button, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { MuiThemeProvider } from "@material-ui/core/styles";
@@ -9,12 +9,20 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  header: {
+    height: 80,
+  },
   logo: {
     maxWidth: 60,
-    marginRight: theme.spacing(2),
   },
-  title: {
-    flexGrow: 1,
+  games: {
+    padding: theme.spacing(2),
+  },
+  blog: {
+    padding: theme.spacing(2),
+  },
+  contact: {
+    padding: theme.spacing(2),
   },
 }));
 
@@ -22,17 +30,33 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.root}>
       <MuiThemeProvider theme={theme}>
-        <AppBar className={classes.appBar} position="static">
-          <Toolbar>
-            <img src="./logo_Dabyss.png" className={classes.logo} />
-            <Typography variant="h6" className={classes.title}>
-              MinigameDabyss
-            </Typography>
-            <Button color="inherit">ゲーム一覧</Button>
-            <Button color="inherit">ブログ</Button>
-            <Button color="inherit">お問い合わせ</Button>
+        <AppBar position="static">
+          <Toolbar className={classes.header}>
+            <Grid item xs={6}>
+              <Grid container alignItems="center">
+                <a href="#">
+                  <img src="./logo_Dabyss.png" className={classes.logo} />
+                </a>
+                <Typography variant="h6" className={classes.title}>
+                  <a href="#">MinigameDabyss</a>
+                </Typography>
+              </Grid>
+            </Grid>
+            <Grid item xs={6} className={classes.right}>
+              <Grid container alignItems="center" justify="flex-end">
+                <Button color="inherit" className={classes.games}>
+                  ゲーム一覧
+                </Button>
+                <Button color="inherit" className={classes.blog}>
+                  ブログ
+                </Button>
+                <Button color="inherit" className={classes.contact}>
+                  お問い合わせ
+                </Button>
+              </Grid>
+            </Grid>
           </Toolbar>
         </AppBar>
       </MuiThemeProvider>

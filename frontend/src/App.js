@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import axios from "axios";
 
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -20,6 +21,7 @@ const App = () => {
           </div>
         ))}
       </Fragment>
+      <Footer></Footer>
     </div>
   );
 };
