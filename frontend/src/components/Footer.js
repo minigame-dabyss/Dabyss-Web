@@ -9,6 +9,27 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  footerLink: {
+    padding: theme.spacing(1),
+  },
+  games: {
+    height: 48,
+  },
+  blog: {
+    height: 48,
+  },
+  contact: {
+    height: 48,
+  },
+  line: {
+    height: 48,
+  },
+  twitter: {
+    height: 48,
+  },
+  copyright: {
+    padding: theme.spacing(1),
+  },
 }));
 
 const Header = () => {
@@ -18,28 +39,55 @@ const Header = () => {
     <div>
       <MuiThemeProvider theme={theme}>
         <AppBar className={classes.appBar} position="static">
-          <Toolbar>
+          <Toolbar className={classes.footerLink}>
             <Grid container>
               <Grid item xs={6} className={classes.left}>
-                <Grid container direction="column">
-                  <Button color="inherit">ゲーム一覧</Button>
-                  <Button color="inherit">ブログ</Button>
-                  <Button color="inherit">お問い合わせ</Button>
+                <Grid container>
+                  <Grid item xs={4}></Grid>
+                  <Grid item xs={4}>
+                    <Grid container direction="column">
+                      <Button color="inherit" className={classes.games}>
+                        ゲーム一覧
+                      </Button>
+                      <Button color="inherit" className={classes.blog}>
+                        ブログ
+                      </Button>
+                      <Button color="inherit" className={classes.contact}>
+                        お問い合わせ
+                      </Button>
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={4}></Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={6} className={classes.left}>
-                <Grid container direction="column">
-                  <Button color="inherit">LINE</Button>
-                  <Button color="inherit">Twitter</Button>
-                  <Button color="inherit">Instagram</Button>
+              <Grid item xs={6} className={classes.right}>
+                <Grid container>
+                  <Grid item xs={5}></Grid>
+                  <Grid item xs={2}>
+                    <Grid container direction="column">
+                      <Button color="inherit" className={classes.line}>
+                        <img src="./line-brands.png" width="18"></img>
+                      </Button>
+                      <Button color="inherit" className={classes.twitter}>
+                        <img src="./twitter-brands.png" width="18"></img>
+                      </Button>
+                      <Button color="inherit" className={classes.note}>
+                        <img src="./logo_symbol.svg"></img>
+                      </Button>
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={5}></Grid>
                 </Grid>
               </Grid>
             </Grid>
           </Toolbar>
-          <Grid container alignItems="center" justify="center">
-            <Typography variant="subtitle2" classes={classes.copyright}>
-              Copyright © Dabyss All Rights Reserved.
-            </Typography>
+          <Grid
+            container
+            alignItems="center"
+            justify="center"
+            className={classes.copyright}
+          >
+            <Typography variant="subtitle2">2020 © Dabyss</Typography>
           </Grid>
         </AppBar>
       </MuiThemeProvider>

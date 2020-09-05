@@ -16,13 +16,13 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 60,
   },
   games: {
-    marginRight: theme.spacing(2),
+    padding: theme.spacing(2),
   },
   blog: {
-    marginRight: theme.spacing(2),
+    padding: theme.spacing(2),
   },
   contact: {
-    marginRight: theme.spacing(2),
+    padding: theme.spacing(2),
   },
 }));
 
@@ -35,7 +35,7 @@ const Header = () => {
         <AppBar position="static">
           <Toolbar className={classes.header}>
             <Grid item xs={6}>
-              <Grid container alignItems="center" justify="center">
+              <Grid container alignItems="center">
                 <a href="#">
                   <img src="./logo_Dabyss.png" className={classes.logo} />
                 </a>
@@ -45,7 +45,7 @@ const Header = () => {
               </Grid>
             </Grid>
             <Grid item xs={6} className={classes.right}>
-              <Grid container alignItems="center" justify="center">
+              <Grid container alignItems="center" justify="flex-end">
                 <Button color="inherit" className={classes.games}>
                   ゲーム一覧
                 </Button>
