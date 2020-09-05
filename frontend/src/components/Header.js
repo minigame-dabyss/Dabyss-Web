@@ -9,9 +9,20 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  header: {
+    height: 80,
+  },
   logo: {
     maxWidth: 60,
-    marginRight: theme.spacing(1),
+  },
+  games: {
+    marginRight: theme.spacing(2),
+  },
+  blog: {
+    marginRight: theme.spacing(2),
+  },
+  contact: {
+    marginRight: theme.spacing(2),
   },
 }));
 
@@ -21,10 +32,10 @@ const Header = () => {
   return (
     <div className={classes.root}>
       <MuiThemeProvider theme={theme}>
-        <AppBar className={classes.appBar} position="static">
-          <Toolbar>
-            <Grid container>
-              <Grid item xs={6} className={classes.left}>
+        <AppBar position="static">
+          <Toolbar className={classes.header}>
+            <Grid item xs={6}>
+              <Grid container alignItems="center" justify="center">
                 <a href="#">
                   <img src="./logo_Dabyss.png" className={classes.logo} />
                 </a>
@@ -32,12 +43,18 @@ const Header = () => {
                   <a href="#">MinigameDabyss</a>
                 </Typography>
               </Grid>
-              <Grid item xs={6} className={classes.right}>
+            </Grid>
+            <Grid item xs={6} className={classes.right}>
+              <Grid container alignItems="center" justify="center">
                 <Button color="inherit" className={classes.games}>
                   ゲーム一覧
                 </Button>
-                <Button color="inherit">ブログ</Button>
-                <Button color="inherit">お問い合わせ</Button>
+                <Button color="inherit" className={classes.blog}>
+                  ブログ
+                </Button>
+                <Button color="inherit" className={classes.contact}>
+                  お問い合わせ
+                </Button>
               </Grid>
             </Grid>
           </Toolbar>

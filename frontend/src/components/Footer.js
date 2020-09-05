@@ -21,22 +21,26 @@ const Header = () => {
           <Toolbar>
             <Grid container>
               <Grid item xs={6} className={classes.left}>
-                <Button color="inherit">ゲーム一覧</Button>
-                <Button color="inherit">ブログ</Button>
-                <Button color="inherit">お問い合わせ</Button>
+                <Grid container direction="column">
+                  <Button color="inherit">ゲーム一覧</Button>
+                  <Button color="inherit">ブログ</Button>
+                  <Button color="inherit">お問い合わせ</Button>
+                </Grid>
               </Grid>
-              <Grid item xs={6} className={classes.right}>
-                <Button color="inherit" className="fa fa-plus-circle">
-                  LINE
-                </Button>
-                <Button color="inherit">Twitter</Button>
-                <Button color="inherit">Instagram</Button>
+              <Grid item xs={6} className={classes.left}>
+                <Grid container direction="column">
+                  <Button color="inherit">LINE</Button>
+                  <Button color="inherit">Twitter</Button>
+                  <Button color="inherit">Instagram</Button>
+                </Grid>
               </Grid>
             </Grid>
           </Toolbar>
-          <Typography variant="subtitle2" classes={classes.copyright}>
-            © 2020 Copyright: Dabyss
-          </Typography>
+          <Grid container alignItems="center" justify="center">
+            <Typography variant="subtitle2" classes={classes.copyright}>
+              Copyright © Dabyss All Rights Reserved.
+            </Typography>
+          </Grid>
         </AppBar>
       </MuiThemeProvider>
     </div>
