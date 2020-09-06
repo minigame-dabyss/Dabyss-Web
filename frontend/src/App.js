@@ -3,6 +3,8 @@ import axios from "axios";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import TopGames from "./components/TopGames";
+import GameCard from "./components/GameCard";
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -13,6 +15,7 @@ const App = () => {
   return (
     <div>
       <Header></Header>
+      <TopGames></TopGames>
       <Fragment>
         {articles.map((article) => (
           <div>

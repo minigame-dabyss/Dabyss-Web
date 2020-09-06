@@ -6,10 +6,7 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "../theme";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  footerLink: {
+  footerLinks: {
     padding: theme.spacing(1),
   },
   games: {
@@ -32,14 +29,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+const Footer = () => {
   const classes = useStyles();
 
   return (
     <div>
       <MuiThemeProvider theme={theme}>
         <AppBar className={classes.appBar} position="static">
-          <Toolbar className={classes.footerLink}>
+          <Toolbar className={classes.footerLinks}>
             <Grid container>
               <Grid item xs={6} className={classes.left}>
                 <Grid container>
@@ -95,4 +92,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Footer;
