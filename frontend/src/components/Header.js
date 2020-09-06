@@ -6,9 +6,6 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "../theme";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   header: {
     height: 80,
   },
