@@ -4,8 +4,8 @@ import axios from "axios";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TopGames from "./components/TopGames";
-// import GameCard from "./components/GameCard";
 import Hero from "./components/Hero";
+import Team from "./components/Team";
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -18,14 +18,15 @@ const App = () => {
       <Header></Header>
       <Hero></Hero>
       <TopGames></TopGames>
-      <Fragment>
+      {/* <Fragment>
         {articles.map((article) => (
           <div>
-            <h1>{article.title}</h1>
-            <p>{article.text}</p>
+          <h1>{article.title}</h1>
+          <p>{article.text}</p>
           </div>
-        ))}
-      </Fragment>
+          ))}
+        </Fragment> */}
+      <Team></Team>
       <Footer></Footer>
     </div>
   );

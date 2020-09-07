@@ -6,6 +6,9 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "../theme";
 
 const useStyles = makeStyles((theme) => ({
+  appBar: {
+    marginTop: theme.spacing(4),
+  },
   footerLinks: {
     padding: theme.spacing(1),
   },
