@@ -7,6 +7,7 @@ import {
   Typography,
   Button,
   Grid,
+  Box,
 } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -16,14 +17,16 @@ import { theme } from "../theme";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    padding: theme.spacing(6),
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
   },
   card: {
     maxWidth: 345,
     margin: "auto",
   },
   button: {
-    padding: theme.spacing(6),
+    paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(4),
   },
 }));
 
@@ -34,7 +37,9 @@ const TopGames = () => {
     <div>
       <MuiThemeProvider theme={theme}>
         <Grid container justify="center" className={classes.title}>
-          <Typography variant="h4">ゲーム一覧</Typography>
+          <Typography variant="h4">
+            <Box fontWeight="fontWeightBold">ゲーム一覧</Box>
+          </Typography>
         </Grid>
         <Grid container>
           <Grid item xs={4}>

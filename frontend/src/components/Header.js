@@ -14,12 +14,15 @@ const useStyles = makeStyles((theme) => ({
   },
   games: {
     padding: theme.spacing(2),
+    fontWeight: "bold",
   },
   blog: {
     padding: theme.spacing(2),
+    fontWeight: "bold",
   },
   contact: {
     padding: theme.spacing(2),
+    fontWeight: "bold",
   },
 }));
 
