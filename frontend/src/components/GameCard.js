@@ -1,5 +1,3 @@
-// 本当はTopGamesコンポーネントに入れて表示したいけどできなかったのでとりあえず置いておく。
-
 import React from "react";
 import {
   Card,
@@ -21,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const GameCard = () => {
+const GameCard = (props) => {
   const classes = useStyles();
 
   return (
@@ -32,16 +30,15 @@ const GameCard = () => {
             <CardMedia
               component="img"
               alt="hoge"
-              height="140"
-              image="./logo_Dabyss.png"
+              height="200"
+              image={props.image}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-                ワードウルフ
+                {props.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
+                {props.detail}
               </Typography>
             </CardContent>
           </CardActionArea>
