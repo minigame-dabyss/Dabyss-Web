@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TopGames from "./components/TopGames";
 import Hero from "./components/Hero";
-import Team from "./components/Team";
+import Members from "./components/Members";
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -26,7 +26,7 @@ const App = () => {
           </div>
           ))}
         </Fragment> */}
-      <Team></Team>
+      <Members></Members>
       <Footer></Footer>
     </div>
   );
