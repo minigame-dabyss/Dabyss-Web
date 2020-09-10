@@ -1,13 +1,14 @@
 import React from "react";
+
 import { AppBar, Toolbar, Typography, Button, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "../theme";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(14),
+    position: "static",
   },
   footerLinks: {
     padding: theme.spacing(1),
@@ -38,7 +39,7 @@ const Footer = () => {
   return (
     <div>
       <MuiThemeProvider theme={theme}>
-        <AppBar className={classes.appBar} position="static">
+        <AppBar className={classes.appBar}>
           <Toolbar className={classes.footerLinks}>
             <Grid container>
               <Grid item xs={6} className={classes.left}>

@@ -1,10 +1,10 @@
 import React from "react";
 import GameCard from "./GameCard";
 
-import { Link } from "react-router-dom";
+import { Typography, Grid, Box } from "@material-ui/core";
 
-import { Typography, Button, Grid, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "../theme";
 
@@ -17,13 +17,9 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 345,
     margin: "auto",
   },
-  button: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
 }));
 
-const TopGames = () => {
+const Games = () => {
   const classes = useStyles();
 
   return (
@@ -58,16 +54,9 @@ const TopGames = () => {
             ></GameCard>
           </Grid>
         </Grid>
-        <Grid container justify="center" className={classes.button}>
-          <Link to="/Games">
-            <Button variant="outlined" color="secondary">
-              more
-            </Button>
-          </Link>
-        </Grid>
       </MuiThemeProvider>
     </div>
   );
 };
 
-export default TopGames;
+export default Games;
