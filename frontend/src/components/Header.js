@@ -1,7 +1,9 @@
 import React from "react";
+
+import { Link } from "react-router-dom";
+
 import { AppBar, Toolbar, Typography, Button, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "../theme";
 
@@ -31,6 +33,7 @@ const Header = () => {
 
   return (
     <div className={classes.root}>
+      {/* <Router> */}
       <MuiThemeProvider theme={theme}>
         <AppBar position="static">
           <Toolbar className={classes.header}>
@@ -46,9 +49,11 @@ const Header = () => {
             </Grid>
             <Grid item xs={6} className={classes.right}>
               <Grid container alignItems="center" justify="flex-end">
-                <Button color="inherit" className={classes.games}>
-                  ゲーム一覧
-                </Button>
+                <Link to="/Games">
+                  <Button color="inherit" className={classes.games}>
+                    ゲーム一覧
+                  </Button>
+                </Link>
                 <Button color="inherit" className={classes.blog}>
                   ブログ
                 </Button>
@@ -60,6 +65,7 @@ const Header = () => {
           </Toolbar>
         </AppBar>
       </MuiThemeProvider>
+      {/* </Router> */}
     </div>
   );
 };
