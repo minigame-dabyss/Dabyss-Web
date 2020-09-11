@@ -32,20 +32,19 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      {/* <Router> */}
+    <div>
       <MuiThemeProvider theme={theme}>
         <AppBar position="static">
           <Toolbar className={classes.header}>
             <Grid item xs={6}>
-              <Grid container alignItems="center">
-                <a href="#">
+              <Link to="/">
+                <Grid container alignItems="center">
                   <img src="./logo_Dabyss.png" className={classes.logo} />
-                </a>
-                <Typography variant="h6" className={classes.title}>
-                  <a href="#">MinigameDabyss</a>
-                </Typography>
-              </Grid>
+                  <Typography variant="h6" className={classes.title}>
+                    MinigameDabyss
+                  </Typography>
+                </Grid>
+              </Link>
             </Grid>
             <Grid item xs={6} className={classes.right}>
               <Grid container alignItems="center" justify="flex-end">
@@ -54,9 +53,11 @@ const Header = () => {
                     ゲーム一覧
                   </Button>
                 </Link>
-                <Button color="inherit" className={classes.blog}>
-                  ブログ
-                </Button>
+                <Link to="/Blog">
+                  <Button color="inherit" className={classes.blog}>
+                    ブログ
+                  </Button>
+                </Link>
                 <Button color="inherit" className={classes.contact}>
                   お問い合わせ
                 </Button>
@@ -65,7 +66,6 @@ const Header = () => {
           </Toolbar>
         </AppBar>
       </MuiThemeProvider>
-      {/* </Router> */}
     </div>
   );
 };
