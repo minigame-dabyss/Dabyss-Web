@@ -8,15 +8,34 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Games from "./components/Games";
 import Blog from "./components/Blog";
+// const App = () => {
+//   const [articles, setArticles] = useState([]);
+//   useEffect(() => {
+//     fetch("http://localhost:8000/api/games/")
+//       .then((res) => res.json())
+//       .then(
+//         (result) => {
+//           // setIsLoaded(true);
+//           setArticles(result.articles);
+//         }
 
 const App = () => {
-  // const [articles, setArticles] = useState([]);
-  // useEffect(async () => {
-  //   const res = await axios.get("http://localhost:8000/api/articles/");
-  //   setArticles(res.data);
-  // }, []);
+  const [articles, setArticles] = useState([]);
+  useEffect(async () => {
+    const res = await axios.get("http://localhost:8000/api/games/");
+    setArticles(res.data);
+  }, []);
+
   return (
     <div>
+      <Fragment>
+        {/* {articles.map((article) => (
+          <div>
+            <h1>{article.title}</h1>
+            <img src={article.sumnail} height="100"></img>
+          </div>
+        ))} */}
+      </Fragment>
       <Router>
         <div>
           <Header></Header>
@@ -31,12 +50,3 @@ const App = () => {
 };
 
 export default App;
-
-// <Fragment>
-//   {articles.map((article) => (
-//     <div>
-//       <h1>{article.title}</h1>
-//       <p>{article.text}</p>
-//     </div>
-//   ))}
-// </Fragment>

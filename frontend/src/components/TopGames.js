@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import GameCard from "./GameCard";
+import axios from "axios";
 
 import { Link } from "react-router-dom";
 
@@ -14,8 +15,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
   },
   card: {
-    maxWidth: 345,
-    margin: "auto",
+    padding: theme.spacing(4),
   },
   button: {
     paddingTop: theme.spacing(4),
@@ -25,7 +25,19 @@ const useStyles = makeStyles((theme) => ({
 
 const TopGames = () => {
   const classes = useStyles();
-
+  // const [articles, setArticles] = useState([]);
+  // useEffect(() => {
+  //   fetch("http://localhost:8000/api/games/")
+  //     .then((res) => res.json())
+  //     .then(
+  //       (result) => {
+  //         // setIsLoaded(true);
+  //         setArticles(result.articles);
+  // const [articles, setArticles] = useState([]);
+  // useEffect(async () => {
+  //   const res = await axios.get("http://localhost:8000/api/games/");
+  //   setArticles(res.data);
+  // }, []);
   return (
     <div>
       <MuiThemeProvider theme={theme}>
@@ -34,29 +46,35 @@ const TopGames = () => {
             <Box fontWeight="fontWeightBold">ゲーム一覧</Box>
           </Typography>
         </Grid>
-        <Grid container>
-          <Grid item xs={4}>
+        <Grid container justify="center">
+          {/* {articles
+            .slice(-3)
+            .reverse()
+            .map((article) => (
+              <div>
+                <Grid item className={classes.card}>
+                  <GameCard
+                    image={article.sumnail}
+                    name={article.title}
+                    detail={article.summary}
+                  ></GameCard>
+                </Grid>
+              </div>
+            ))} */}
+          {/* <Grid item xs={4}>
+            <GameCard
+              image={articles.sumnail}
+              name={articles.title}
+              detail={articles.summary}
+            ></GameCard>
+          </Grid> */}
+          {/* <Grid item xs={4}>
             <GameCard
               image="./logo_Dabyss.png"
               name="hoge"
               detail="hogehoge"
             ></GameCard>
-          </Grid>
-          <Grid item xs={4}>
-            <GameCard
-              image="./logo_Dabyss.png"
-              name="hoge"
-              detail="pagepage"
-            ></GameCard>
-          </Grid>
-          <Grid item xs={4}>
-            <GameCard
-              image="./logo_Dabyss.png"
-              name="hoge"
-              detail="Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica"
-            ></GameCard>
-          </Grid>
+          </Grid> */}
         </Grid>
         <Grid container justify="center" className={classes.button}>
           <Link to="/Games">
