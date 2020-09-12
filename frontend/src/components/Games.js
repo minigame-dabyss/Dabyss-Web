@@ -1,5 +1,6 @@
-import React from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import GameCard from "./GameCard";
+import axios from "axios";
 
 import { Typography, Grid, Box } from "@material-ui/core";
 
@@ -14,13 +15,20 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(4),
   },
   card: {
-    maxWidth: 345,
-    margin: "auto",
+    padding: theme.spacing(4),
   },
 }));
 
 const Games = () => {
   const classes = useStyles();
+  const [articles, setArticles] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const res = await axios.get("http://localhost:8000/api/games/");
+      setArticles(res.data);
+    }
+    fetchData();
+  }, []);
 
   return (
     <div>
@@ -30,29 +38,18 @@ const Games = () => {
             <Box fontWeight="fontWeightBold">ゲーム一覧</Box>
           </Typography>
         </Grid>
-        <Grid container>
-          <Grid item xs={4}>
-            <GameCard
-              image="./logo_Dabyss.png"
-              name="hoge"
-              detail="hogehoge"
-            ></GameCard>
-          </Grid>
-          <Grid item xs={4}>
-            <GameCard
-              image="./logo_Dabyss.png"
-              name="hoge"
-              detail="pagepage"
-            ></GameCard>
-          </Grid>
-          <Grid item xs={4}>
-            <GameCard
-              image="./logo_Dabyss.png"
-              name="hoge"
-              detail="Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica"
-            ></GameCard>
-          </Grid>
+        <Grid container justify="center">
+          {articles.map((article) => (
+            <div>
+              <Grid item className={classes.card}>
+                <GameCard
+                  image={article.sumnail}
+                  name={article.title}
+                  detail={article.summary}
+                ></GameCard>
+              </Grid>
+            </div>
+          ))}
         </Grid>
       </MuiThemeProvider>
     </div>
