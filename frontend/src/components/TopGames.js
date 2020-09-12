@@ -25,19 +25,14 @@ const useStyles = makeStyles((theme) => ({
 
 const TopGames = () => {
   const classes = useStyles();
-  // const [articles, setArticles] = useState([]);
-  // useEffect(() => {
-  //   fetch("http://localhost:8000/api/games/")
-  //     .then((res) => res.json())
-  //     .then(
-  //       (result) => {
-  //         // setIsLoaded(true);
-  //         setArticles(result.articles);
-  // const [articles, setArticles] = useState([]);
-  // useEffect(async () => {
-  //   const res = await axios.get("http://localhost:8000/api/games/");
-  //   setArticles(res.data);
-  // }, []);
+  const [articles, setArticles] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const res = await axios.get("http://localhost:8000/api/games/");
+      setArticles(res.data);
+    }
+    fetchData();
+  }, []);
   return (
     <div>
       <MuiThemeProvider theme={theme}>
@@ -47,7 +42,7 @@ const TopGames = () => {
           </Typography>
         </Grid>
         <Grid container justify="center">
-          {/* {articles
+          {articles
             .slice(-3)
             .reverse()
             .map((article) => (
@@ -60,21 +55,7 @@ const TopGames = () => {
                   ></GameCard>
                 </Grid>
               </div>
-            ))} */}
-          {/* <Grid item xs={4}>
-            <GameCard
-              image={articles.sumnail}
-              name={articles.title}
-              detail={articles.summary}
-            ></GameCard>
-          </Grid> */}
-          {/* <Grid item xs={4}>
-            <GameCard
-              image="./logo_Dabyss.png"
-              name="hoge"
-              detail="hogehoge"
-            ></GameCard>
-          </Grid> */}
+            ))}
         </Grid>
         <Grid container justify="center" className={classes.button}>
           <Link to="/Games">
