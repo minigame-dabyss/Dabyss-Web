@@ -16,6 +16,7 @@ class BlogArticle(models.Model):
     title = models.CharField(max_length=40)
     author = models.TextField('著者', blank=False)
     summary = models.TextField('概要', blank=False)
+    hoge = models.TextField('hoge', blank=True)
     text = MarkdownxField('本文', help_text='Markdown形式で書いてください。')
     date = models.DateTimeField(blank=False)
     sumnail = models.ImageField(
