@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Article from "./Article";
+import axios from "axios";
 
-import { Grid, TextField, InputAdornment } from "@material-ui/core";
+import {
+  Grid,
+  TextField,
+  InputAdornment,
+  Typography,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -17,20 +27,83 @@ const useStyles = makeStyles((theme) => ({
   inputRoot: {
     marginLeft: theme.spacing(6),
   },
+  card: {
+    width: 740,
+    margin: "auto",
+    marginBottom: theme.spacing(2),
+  },
+  CardActionArea: {
+    padding: theme.spacing(2),
+  },
+  media: {
+    height: 120,
+  },
+  CardContent: {
+    paddingTop: theme.spacing(0),
+  },
 }));
 
 const Blog = () => {
   const classes = useStyles();
-
+  const [articles, setArticles] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      const res = await axios.get("http://localhost:8000/api/blog/");
+      setArticles(res.data);
+    }
+    fetchData();
+  }, []);
   return (
     <div>
       <MuiThemeProvider theme={theme}>
         <Grid container className={classes.root}>
           <Grid item>
+            {articles.map((article) => (
+              <div>
+                <Card className={classes.card} elevation={0} variant="outlined">
+                  <CardActionArea className={classes.CardActionArea}>
+                    <Typography
+                      gutterBottom
+                      variant="body1"
+                      className={classes.date}
+                    >
+                      {article.date}
+                    </Typography>
+                    <Grid container>
+                      <Grid item xs={3}>
+                        <CardMedia
+                          className={classes.media}
+                          image={article.sumnail}
+                          title="Contemplative Reptile"
+                        />
+                      </Grid>
+                      <Grid item xs={9}>
+                        <CardContent className={classes.CardContent}>
+                          <Typography gutterBottom variant="h5">
+                            {article.title}
+                          </Typography>
+                          <Typography
+                            gutterBottom
+                            variant="body2"
+                            color="textSecondary"
+                            component="p"
+                          >
+                            #Machine Learning
+                          </Typography>
+                          <Typography variant="body2" component="p">
+                            Author:{article.author}
+                          </Typography>
+                        </CardContent>
+                      </Grid>
+                    </Grid>
+                  </CardActionArea>
+                </Card>
+              </div>
+            ))}
+            {/* <Article></Article>
             <Article></Article>
             <Article></Article>
-            <Article></Article>
-            <Article></Article>
+            <Article></Article> */}
           </Grid>
           <Grid item>
             <TextField
