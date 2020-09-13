@@ -15,32 +15,41 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='BlogArticle',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=40)),
+                # ('author', models.TextField(verbose_name='著者')),
                 ('summary', models.TextField(verbose_name='概要')),
-                ('text', markdownx.models.MarkdownxField(help_text='Markdown形式で書いてください。', verbose_name='本文')),
+                ('text', markdownx.models.MarkdownxField(
+                    help_text='Markdown形式で書いてください。', verbose_name='本文')),
                 ('date', models.DateTimeField()),
-                ('sumnail', models.ImageField(default='logo_Dabyss.png', upload_to='blog_sumnail/')),
+                ('sumnail', models.ImageField(
+                    default='logo_Dabyss.png', upload_to='blog_sumnail/')),
             ],
         ),
         migrations.CreateModel(
             name='GamesArticle',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=40)),
                 ('summary', models.TextField(verbose_name='概要')),
-                ('text', markdownx.models.MarkdownxField(help_text='Markdown形式で書いてください。', verbose_name='本文')),
+                ('text', markdownx.models.MarkdownxField(
+                    help_text='Markdown形式で書いてください。', verbose_name='本文')),
                 ('date', models.DateTimeField()),
-                ('sumnail', models.ImageField(default='logo_Dabyss.png', upload_to='game_sumnail/')),
+                ('sumnail', models.ImageField(
+                    default='logo_Dabyss.png', upload_to='game_sumnail/')),
             ],
         ),
         migrations.CreateModel(
             name='HomeArticle',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.AutoField(auto_created=True,
+                                        primary_key=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=40)),
                 ('summary', models.TextField(verbose_name='summary')),
-                ('text', markdownx.models.MarkdownxField(help_text='Markdown形式で書いてください。', verbose_name='本文')),
+                ('text', markdownx.models.MarkdownxField(
+                    help_text='Markdown形式で書いてください。', verbose_name='本文')),
                 ('date', models.DateTimeField()),
             ],
         ),
