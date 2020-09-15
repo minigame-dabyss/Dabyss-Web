@@ -5,9 +5,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "../theme";
 
+import lineLogo from "../assets/line.png";
+import twiiterLogo from "../assets/twitter.png";
+import noteLogo from "../assets/note.svg";
+
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    marginTop: theme.spacing(14),
     position: "static",
   },
   footerLinks: {
@@ -67,13 +70,13 @@ const Footer = () => {
                   <Grid item xs={2}>
                     <Grid container direction="column">
                       <Button color="inherit" className={classes.line}>
-                        <img src="./line-brands.png" width="18"></img>
+                        <img src={lineLogo} width="18"></img>
                       </Button>
                       <Button color="inherit" className={classes.twitter}>
-                        <img src="./twitter-brands.png" width="18"></img>
+                        <img src={twiiterLogo} width="18"></img>
                       </Button>
                       <Button color="inherit" className={classes.note}>
-                        <img src="./logo_symbol.svg"></img>
+                        <img src={noteLogo}></img>
                       </Button>
                     </Grid>
                   </Grid>

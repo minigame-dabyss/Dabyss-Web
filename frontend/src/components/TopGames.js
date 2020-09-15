@@ -47,13 +47,15 @@ const TopGames = () => {
             .reverse()
             .map((article, index) => (
               <div key={index}>
-                <Grid item className={classes.card}>
-                  <GameCard
-                    image={article.sumnail}
-                    name={article.title}
-                    detail={article.summary}
-                  ></GameCard>
-                </Grid>
+                <Link to={"/Games/GameArticle/" + (index + 1)}>
+                  <Grid item className={classes.card}>
+                    <GameCard
+                      image={article.sumnail}
+                      name={article.title}
+                      detail={article.summary}
+                    ></GameCard>
+                  </Grid>
+                </Link>
               </div>
             ))}
         </Grid>

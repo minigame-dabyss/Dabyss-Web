@@ -29,7 +29,7 @@ const GameCard = (props) => {
           <CardActionArea>
             <CardMedia
               component="img"
-              alt="hoge"
+              alt="ゲーム画像"
               height="200"
               image={props.image}
             />

@@ -7,6 +7,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "../theme";
 
+import logoSrc from "../assets/logo_Dabyss.png";
+
 const useStyles = makeStyles((theme) => ({
   header: {
     height: 80,
@@ -39,7 +41,7 @@ const Header = () => {
             <Grid item xs={6}>
               <Link to="/">
                 <Grid container alignItems="center">
-                  <img src="./logo_Dabyss.png" className={classes.logo} />
+                  <img src={logoSrc} className={classes.logo} />
                   <Typography variant="h6" className={classes.title}>
                     MinigameDabyss
                   </Typography>
