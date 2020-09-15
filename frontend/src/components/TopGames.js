@@ -45,8 +45,8 @@ const TopGames = () => {
           {articles
             .slice(-3)
             .reverse()
-            .map((article) => (
-              <div>
+            .map((article, index) => (
+              <div key={index}>
                 <Grid item className={classes.card}>
                   <GameCard
                     image={article.sumnail}

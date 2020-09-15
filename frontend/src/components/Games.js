@@ -3,6 +3,7 @@ import GameCard from "./GameCard";
 import axios from "axios";
 
 import { Typography, Grid, Box } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -25,6 +26,7 @@ const Games = () => {
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get("http://localhost:8000/api/games/");
+      console.log(res.data);
       setArticles(res.data);
     }
     fetchData();
@@ -39,15 +41,17 @@ const Games = () => {
           </Typography>
         </Grid>
         <Grid container justify="center">
-          {articles.map((article) => (
-            <div>
-              <Grid item className={classes.card}>
-                <GameCard
-                  image={article.sumnail}
-                  name={article.title}
-                  detail={article.summary}
-                ></GameCard>
-              </Grid>
+          {articles.map((article, index) => (
+            <div key={index}>
+              <Link to={"/Games/GameArticle/" + (index + 1)}>
+                <Grid item className={classes.card}>
+                  <GameCard
+                    image={article.sumnail}
+                    name={article.title}
+                    detail={article.summary}
+                  ></GameCard>
+                </Grid>
+              </Link>
             </div>
           ))}
         </Grid>

@@ -58,8 +58,8 @@ const Blog = () => {
       <MuiThemeProvider theme={theme}>
         <Grid container className={classes.root}>
           <Grid item>
-            {articles.map((article) => (
-              <div>
+            {articles.map((article, index) => (
+              <div key={index}>
                 <Card className={classes.card} elevation={0} variant="outlined">
                   <CardActionArea className={classes.CardActionArea}>
                     <Typography
@@ -100,10 +100,6 @@ const Blog = () => {
                 </Card>
               </div>
             ))}
-            {/* <Article></Article>
-            <Article></Article>
-            <Article></Article>
-            <Article></Article> */}
           </Grid>
           <Grid item>
             <TextField

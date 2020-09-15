@@ -54,7 +54,7 @@ const Hero = () => {
             <Typography variant="body1">
               夢ならばどれほどよかったでしょういまだにあなたのことを夢に見る忘れた物を取りに帰るように古びた思い出のホコリを払う
             </Typography>
-            <Button variant="contained" color="line" className={classes.button}>
+            <Button variant="contained" className={classes.button}>
               <Typography variant="h6">LINEで友だち追加</Typography>
             </Button>
           </Grid>

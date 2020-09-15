@@ -25,7 +25,7 @@ const Member = (props) => {
             <Avatar alt="" src={props.image} className={classes.avatar} />
           </Grid>
           <Grid item xs={6}>
-            <Typography variant="h7">
+            <Typography variant="h6">
               <Box fontWeight="fontWeightBold">{props.position}</Box>
             </Typography>
             <Typography variant="h5">
