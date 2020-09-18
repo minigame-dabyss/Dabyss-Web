@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
   text: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(12),
+    "& a": {
+      borderBottom: "1px solid",
+    },
   },
 }));
 
