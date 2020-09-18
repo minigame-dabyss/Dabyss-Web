@@ -14,5 +14,9 @@ code {
 
 a {
   text-decoration: none;
-  color: white;
+  transition-duration: 0.2s;
+  color: inherit;
+}
+a:hover {
+  opacity: 0.5;
 }

@@ -49,6 +49,7 @@ const Blog = () => {
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get("http://localhost:8000/api/blog/");
+      console.log(res.data);
       setArticles(res.data);
     }
     fetchData();
@@ -58,8 +59,8 @@ const Blog = () => {
       <MuiThemeProvider theme={theme}>
         <Grid container className={classes.root}>
           <Grid item>
-            {articles.map((article) => (
-              <div>
+            {articles.map((article, index) => (
+              <div key={index}>
                 <Card className={classes.card} elevation={0} variant="outlined">
                   <CardActionArea className={classes.CardActionArea}>
                     <Typography
@@ -100,10 +101,6 @@ const Blog = () => {
                 </Card>
               </div>
             ))}
-            {/* <Article></Article>
-            <Article></Article>
-            <Article></Article>
-            <Article></Article> */}
           </Grid>
           <Grid item>
             <TextField
