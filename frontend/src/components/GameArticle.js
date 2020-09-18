@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
   },
   img: {
     width: "100%",
-    height: 480,
+    maxHeight: 500,
+    objectFit: "cover",
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
   },

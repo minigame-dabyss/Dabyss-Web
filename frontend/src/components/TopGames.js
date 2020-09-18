@@ -29,6 +29,7 @@ const TopGames = () => {
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get("http://localhost:8000/api/games/");
+      console.log(res.data);
       setArticles(res.data);
     }
     fetchData();
