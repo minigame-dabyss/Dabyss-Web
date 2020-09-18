@@ -14,5 +14,10 @@ code {
 
 a {
   text-decoration: none;
-  color: white;
+  border-bottom: 1px solid #3d3d3d;
+  transition-duration: 0.2s;
+  color: inherit;
+}
+a:hover {
+  opacity: 0.5;
 }
