@@ -49,6 +49,7 @@ const Blog = () => {
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get("http://localhost:8000/api/blog/");
+      console.log(res.data);
       setArticles(res.data);
     }
     fetchData();
