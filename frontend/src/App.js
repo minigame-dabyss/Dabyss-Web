@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import Games from "./components/Games";
 import GameArticle from "./components/GameArticle";
 import Blog from "./components/Blog";
+import BlogArticle from "./components/BlogArticle";
 
 const App = () => {
   return (
@@ -21,7 +22,12 @@ const App = () => {
           path="/Games/GameArticle/:id"
           render={(props) => <GameArticle {...props} />}
         />
-        <Route path="/Blog" component={Blog} />
+        <Route exact path="/Blog" component={Blog} />
+        <Route
+          exact
+          path="/Blog/Article/:id"
+          render={(props) => <BlogArticle {...props} />}
+        />
         <Footer></Footer>
       </div>
     </Router>

@@ -36,27 +36,27 @@ const useStyles = makeStyles((theme) => ({
 
 const GameArticle = (props) => {
   const classes = useStyles();
-  const [articles, setArticles] = useState([]);
+  const [games, setGames] = useState([]);
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get(
         "http://localhost:8000/api/games/" + props.match.params.id
       );
       console.log(res.data);
-      setArticles(res.data);
+      setGames(res.data);
     }
     fetchData();
   }, []);
-  const markdown = articles.text;
+  const markdown = games.text;
 
   return (
     <div>
       <MuiThemeProvider theme={theme}>
         <Grid container direction="column" className={classes.root}>
           <Typography variant="h3" className={classes.title}>
-            {articles.title}
+            {games.title}
           </Typography>
-          <img src={articles.sumnail} className={classes.img}></img>
+          <img src={games.sumnail} className={classes.img}></img>
           <ReactMarkdown source={markdown} className={classes.text} />
         </Grid>
       </MuiThemeProvider>

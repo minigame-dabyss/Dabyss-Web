@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Article from "./Article";
 import axios from "axios";
 
+import { Link } from "react-router-dom";
+
 import {
   Grid,
   TextField,
@@ -59,48 +61,57 @@ const Blog = () => {
       <MuiThemeProvider theme={theme}>
         <Grid container className={classes.root}>
           <Grid item>
-            {articles.map((article, index) => (
-              <div key={index}>
-                <Card className={classes.card} elevation={0} variant="outlined">
-                  <CardActionArea className={classes.CardActionArea}>
-                    <Typography
-                      gutterBottom
-                      variant="body1"
-                      className={classes.date}
+            {articles
+              .slice(0)
+              .reverse()
+              .map((article, index) => (
+                <div key={index}>
+                  <Link to={`/Blog/Article/${article.id}`}>
+                    <Card
+                      className={classes.card}
+                      elevation={0}
+                      variant="outlined"
                     >
-                      {article.date}
-                    </Typography>
-                    <Grid container>
-                      <Grid item xs={3}>
-                        <CardMedia
-                          className={classes.media}
-                          image={article.sumnail}
-                          title="Contemplative Reptile"
-                        />
-                      </Grid>
-                      <Grid item xs={9}>
-                        <CardContent className={classes.CardContent}>
-                          <Typography gutterBottom variant="h5">
-                            {article.title}
-                          </Typography>
-                          <Typography
-                            gutterBottom
-                            variant="body2"
-                            color="textSecondary"
-                            component="p"
-                          >
-                            #Machine Learning
-                          </Typography>
-                          <Typography variant="body2" component="p">
-                            Author:{article.author}
-                          </Typography>
-                        </CardContent>
-                      </Grid>
-                    </Grid>
-                  </CardActionArea>
-                </Card>
-              </div>
-            ))}
+                      <CardActionArea className={classes.CardActionArea}>
+                        <Typography
+                          gutterBottom
+                          variant="body1"
+                          className={classes.date}
+                        >
+                          {article.date}
+                        </Typography>
+                        <Grid container>
+                          <Grid item xs={3}>
+                            <CardMedia
+                              className={classes.media}
+                              image={article.sumnail}
+                              title="Contemplative Reptile"
+                            />
+                          </Grid>
+                          <Grid item xs={9}>
+                            <CardContent className={classes.CardContent}>
+                              <Typography gutterBottom variant="h5">
+                                {article.title}
+                              </Typography>
+                              <Typography
+                                gutterBottom
+                                variant="body2"
+                                color="textSecondary"
+                                component="p"
+                              >
+                                #Machine Learning
+                              </Typography>
+                              <Typography variant="body2" component="p">
+                                Author:{article.author}
+                              </Typography>
+                            </CardContent>
+                          </Grid>
+                        </Grid>
+                      </CardActionArea>
+                    </Card>
+                  </Link>
+                </div>
+              ))}
           </Grid>
           <Grid item>
             <TextField

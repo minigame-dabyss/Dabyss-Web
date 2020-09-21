@@ -46,14 +46,14 @@ const TopGames = () => {
           {games
             .slice(-3)
             .reverse()
-            .map((article, index) => (
+            .map((game, index) => (
               <div key={index}>
-                <Link to={`/Games/GameArticle/${article.id}`}>
+                <Link to={`/Games/GameArticle/${game.id}`}>
                   <Grid item className={classes.card}>
                     <GameCard
-                      image={article.sumnail}
-                      name={article.title}
-                      detail={article.summary}
+                      image={game.sumnail}
+                      name={game.title}
+                      detail={game.summary}
                     ></GameCard>
                   </Grid>
                 </Link>
