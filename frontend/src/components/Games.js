@@ -22,12 +22,12 @@ const useStyles = makeStyles((theme) => ({
 
 const Games = () => {
   const classes = useStyles();
-  const [articles, setArticles] = useState([]);
+  const [games, setGames] = useState([]);
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get("http://localhost:8000/api/games/");
       console.log(res.data);
-      setArticles(res.data);
+      setGames(res.data);
     }
     fetchData();
   }, []);
@@ -41,14 +41,14 @@ const Games = () => {
           </Typography>
         </Grid>
         <Grid container justify="center">
-          {articles.map((article, index) => (
+          {games.map((game, index) => (
             <div key={index}>
-              <Link to={"/Games/GameArticle/" + (index + 1)}>
+              <Link to={`/Games/GameArticle/${game.id}`}>
                 <Grid item className={classes.card}>
                   <GameCard
-                    image={article.sumnail}
-                    name={article.title}
-                    detail={article.summary}
+                    image={game.sumnail}
+                    name={game.title}
+                    detail={game.summary}
                   ></GameCard>
                 </Grid>
               </Link>

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
+// import Article from "./Article";
+import CodeBlock from "./CodeBlock.tsx";
 
-import { Typography, Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { MuiThemeProvider } from "@material-ui/core/styles";
@@ -13,10 +15,18 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     maxWidth: 820,
   },
+  date: {
+    marginTop: theme.spacing(4),
+    // marginBottom: theme.spacing(2),
+  },
   title: {
     fontWeight: "Bold",
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
+  },
+  author: {
+    // marginTop: theme.spacing(2),
+    // marginBottom: theme.spacing(2),
   },
   img: {
     width: "100%",
@@ -38,34 +48,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const GameArticle = (props) => {
+const BlogArticle = (props) => {
   const classes = useStyles();
-  const [games, setGames] = useState([]);
+  const [articles, setArticles] = useState([]);
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get(
-        "http://localhost:8000/api/games/" + props.match.params.id
+        "http://localhost:8000/api/blog/" + props.match.params.id
       );
       console.log(res.data);
-      setGames(res.data);
+      setArticles(res.data);
     }
     fetchData();
   }, []);
-  const markdown = games.text;
-
+  const markdown = articles.text;
   return (
     <div>
       <MuiThemeProvider theme={theme}>
         <Grid container direction="column" className={classes.root}>
-          <Typography variant="h3" className={classes.title}>
-            {games.title}
+          <Typography variant="body1" className={classes.date}>
+            {articles.date}
           </Typography>
-          <img src={games.sumnail} className={classes.img}></img>
-          <ReactMarkdown source={markdown} className={classes.text} />
+          <Typography variant="h3" className={classes.title}>
+            {articles.title}
+          </Typography>
+          <Typography variant="body1" className={classes.author}>
+            Author:{articles.author}
+          </Typography>
+          <img src={articles.sumnail} className={classes.img}></img>
+          <ReactMarkdown
+            source={markdown}
+            className={classes.text}
+            renderers={{ code: CodeBlock }}
+          />
         </Grid>
       </MuiThemeProvider>
     </div>
   );
 };
 
-export default GameArticle;
+export default BlogArticle;
