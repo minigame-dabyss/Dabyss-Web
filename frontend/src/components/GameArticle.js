@@ -27,9 +27,13 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(12),
+    marginBottom: theme.spacing(4),
     "& a": {
       borderBottom: "1px solid",
+      transitionDuration: "0.2s",
+    },
+    "& a:hover": {
+      opacity: "0.5",
     },
   },
 }));

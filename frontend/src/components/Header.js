@@ -38,7 +38,7 @@ const Header = () => {
       <MuiThemeProvider theme={theme}>
         <AppBar position="static">
           <Toolbar className={classes.header}>
-            <Grid item xs={6}>
+            <Grid item xs={2}>
               <Link to="/">
                 <Grid container alignItems="center">
                   <img src={logoSrc} className={classes.logo} />
@@ -48,6 +48,7 @@ const Header = () => {
                 </Grid>
               </Link>
             </Grid>
+            <Grid item xs={4}></Grid>
             <Grid item xs={6} className={classes.right}>
               <Grid container alignItems="center" justify="flex-end">
                 <Link to="/Games">
