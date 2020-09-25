@@ -4,7 +4,7 @@ import { Grid, Avatar, Typography, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { MuiThemeProvider } from "@material-ui/core/styles";
-import { theme } from "../theme";
+import { theme } from "../../theme";
 
 const useStyles = makeStyles((theme) => ({
   avatar: {

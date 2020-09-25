@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Article from "./Article";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
@@ -18,7 +17,7 @@ import SearchIcon from "@material-ui/icons/Search";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { MuiThemeProvider } from "@material-ui/core/styles";
-import { theme } from "../theme";
+import { theme } from "../../theme";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -66,7 +65,7 @@ const Blog = () => {
               .reverse()
               .map((article, index) => (
                 <div key={index}>
-                  <Link to={`/Blog/Article/${article.id}`}>
+                  <Link to={`/Blog/${article.id}`}>
                     <Card
                       className={classes.card}
                       elevation={0}

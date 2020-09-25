@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
 import { MuiThemeProvider } from "@material-ui/core/styles";
-import { theme } from "../theme";
+import { theme } from "../../theme";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -43,7 +43,7 @@ const Games = () => {
         <Grid container justify="center">
           {games.map((game, index) => (
             <div key={index}>
-              <Link to={`/Games/GameArticle/${game.id}`}>
+              <Link to={`/Games/${game.id}`}>
                 <Grid item className={classes.card}>
                   <GameCard
                     image={game.sumnail}

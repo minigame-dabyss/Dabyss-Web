@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import GameCard from "./GameCard";
+import GameCard from "../GameComponents/GameCard";
 import axios from "axios";
 
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { Typography, Button, Grid, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { MuiThemeProvider } from "@material-ui/core/styles";
-import { theme } from "../theme";
+import { theme } from "../../theme";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -48,7 +48,7 @@ const TopGames = () => {
             .reverse()
             .map((game, index) => (
               <div key={index}>
-                <Link to={`/Games/GameArticle/${game.id}`}>
+                <Link to={`/Games/${game.id}`}>
                   <Grid item className={classes.card}>
                     <GameCard
                       image={game.sumnail}
