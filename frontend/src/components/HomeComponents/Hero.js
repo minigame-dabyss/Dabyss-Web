@@ -54,9 +54,11 @@ const Hero = () => {
             <Typography variant="body1">
               夢ならばどれほどよかったでしょういまだにあなたのことを夢に見る忘れた物を取りに帰るように古びた思い出のホコリを払う
             </Typography>
-            <Button variant="contained" className={classes.button}>
-              <Typography variant="h6">LINEで友だち追加</Typography>
-            </Button>
+            <a href="https://line.me/R/ti/p/@390zkjvc">
+              <Button variant="contained" className={classes.button}>
+                <Typography variant="h6">LINEで友だち追加</Typography>
+              </Button>
+            </a>
           </Grid>
         </Grid>
       </MuiThemeProvider>
