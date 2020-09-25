@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { AppBar, Toolbar, Typography, Button, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -15,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
   },
   footerLinks: {
     padding: theme.spacing(1),
+  },
+  left: {
+    alignItems: "center",
   },
   games: {
     height: 48,
@@ -41,6 +45,61 @@ const Footer = () => {
 
   return (
     <div>
+      <MuiThemeProvider theme={theme}>
+        <AppBar className={classes.appBar}>
+          <Toolbar className={classes.footerLinks}>
+            <Grid container justify="space-around">
+              <Grid item>
+                <Grid container direction="column" className={classes.left}>
+                  <Link to="/Games">
+                    <Button color="inherit" className={classes.games}>
+                      ゲーム一覧
+                    </Button>
+                  </Link>
+                  <Link to="/Blog">
+                    <Button color="inherit" className={classes.blog}>
+                      ブログ
+                    </Button>
+                  </Link>
+                  <Button color="inherit" className={classes.contact}>
+                    お問い合わせ
+                  </Button>
+                </Grid>
+              </Grid>
+              <Grid item>
+                <Grid container direction="column">
+                  <Button color="inherit" className={classes.line}>
+                    <img src={lineLogo} width="18"></img>
+                  </Button>
+                  <Button color="inherit" className={classes.twitter}>
+                    <img src={twiiterLogo} width="18"></img>
+                  </Button>
+                  <Button color="inherit" className={classes.note}>
+                    <img src={noteLogo}></img>
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Toolbar>
+          <Grid
+            container
+            alignItems="center"
+            justify="center"
+            className={classes.copyright}
+          >
+            <Typography variant="subtitle2">2020 © Dabyss</Typography>
+          </Grid>
+        </AppBar>
+      </MuiThemeProvider>
+    </div>
+  );
+};
+
+export default Footer;
+
+// 修正用にとりあえず見た目いい感じにできてるフッターをこっちに保存しておく
+{
+  /* <div>
       <MuiThemeProvider theme={theme}>
         <AppBar className={classes.appBar}>
           <Toolbar className={classes.footerLinks}>
@@ -95,8 +154,5 @@ const Footer = () => {
           </Grid>
         </AppBar>
       </MuiThemeProvider>
-    </div>
-  );
-};
-
-export default Footer;
+    </div> */
+}
