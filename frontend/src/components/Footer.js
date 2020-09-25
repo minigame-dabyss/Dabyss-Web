@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import { AppBar, Toolbar, Typography, Button, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -15,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
   },
   footerLinks: {
     padding: theme.spacing(1),
+  },
+  left: {
+    alignItems: "center",
   },
   games: {
     height: 48,
@@ -44,43 +48,41 @@ const Footer = () => {
       <MuiThemeProvider theme={theme}>
         <AppBar className={classes.appBar}>
           <Toolbar className={classes.footerLinks}>
-            <Grid container>
-              <Grid item xs={6} className={classes.left}>
-                <Grid container>
-                  <Grid item xs={4}></Grid>
-                  <Grid item xs={4}>
-                    <Grid container direction="column">
-                      <Button color="inherit" className={classes.games}>
-                        ゲーム一覧
-                      </Button>
-                      <Button color="inherit" className={classes.blog}>
-                        ブログ
-                      </Button>
-                      <Button color="inherit" className={classes.contact}>
-                        お問い合わせ
-                      </Button>
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={4}></Grid>
+            <Grid container justify="space-around">
+              <Grid item>
+                <Grid container direction="column" className={classes.left}>
+                  <Link to="/Games">
+                    <Button color="inherit" className={classes.games}>
+                      ゲーム一覧
+                    </Button>
+                  </Link>
+                  <Link to="/Blog">
+                    <Button color="inherit" className={classes.blog}>
+                      ブログ
+                    </Button>
+                  </Link>
+                  <Button color="inherit" className={classes.contact}>
+                    お問い合わせ
+                  </Button>
                 </Grid>
               </Grid>
-              <Grid item xs={6} className={classes.right}>
-                <Grid container>
-                  <Grid item xs={5}></Grid>
-                  <Grid item xs={2}>
-                    <Grid container direction="column">
-                      <Button color="inherit" className={classes.line}>
-                        <img src={lineLogo} width="18"></img>
-                      </Button>
-                      <Button color="inherit" className={classes.twitter}>
-                        <img src={twiiterLogo} width="18"></img>
-                      </Button>
-                      <Button color="inherit" className={classes.note}>
-                        <img src={noteLogo}></img>
-                      </Button>
-                    </Grid>
-                  </Grid>
-                  <Grid item xs={5}></Grid>
+              <Grid item>
+                <Grid container direction="column">
+                  <a href="https://line.me/R/ti/p/@390zkjvc">
+                    <Button color="inherit" className={classes.line}>
+                      <img src={lineLogo} width="18"></img>
+                    </Button>
+                  </a>
+                  <a href="https://twitter.com/m_dabyss?s=20">
+                    <Button color="inherit" className={classes.twitter}>
+                      <img src={twiiterLogo} width="18"></img>
+                    </Button>
+                  </a>
+                  <a href="https://note.com/m_dabyss">
+                    <Button color="inherit" className={classes.note}>
+                      <img src={noteLogo}></img>
+                    </Button>
+                  </a>
                 </Grid>
               </Grid>
             </Grid>
