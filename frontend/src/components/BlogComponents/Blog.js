@@ -12,6 +12,7 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
+  Hidden,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 
@@ -30,8 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
   card: {
     width: 740,
-    margin: "auto",
-    marginBottom: theme.spacing(2),
+    margin: theme.spacing(2),
   },
   CardActionArea: {
     padding: theme.spacing(2),
@@ -41,6 +41,25 @@ const useStyles = makeStyles((theme) => ({
   },
   CardContent: {
     paddingTop: theme.spacing(0),
+  },
+  spCard: {
+    margin: theme.spacing(2),
+  },
+  spCardActionArea: {
+    padding: theme.spacing(2),
+    paddingBottom: theme.spacing(0),
+  },
+  spMedia: {
+    height: 120,
+    width: 180,
+    margin: "0 auto",
+  },
+  spCardContent: {
+    padding: theme.spacing(0),
+    paddingTop: theme.spacing(2),
+  },
+  inputRoot: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -59,59 +78,118 @@ const Blog = () => {
     <div>
       <MuiThemeProvider theme={theme}>
         <Grid container className={classes.root}>
-          <Grid item>
-            {articles
-              .slice(0)
-              .reverse()
-              .map((article, index) => (
-                <div key={index}>
-                  <Link to={`/Blog/${article.id}`}>
-                    <Card
-                      className={classes.card}
-                      elevation={0}
-                      variant="outlined"
-                    >
-                      <CardActionArea className={classes.CardActionArea}>
-                        <Typography
-                          gutterBottom
-                          variant="body1"
-                          className={classes.date}
-                        >
-                          {article.date}
-                        </Typography>
-                        <Grid container>
-                          <Grid item xs={3}>
-                            <CardMedia
-                              className={classes.media}
-                              image={article.sumnail}
-                              title="Contemplative Reptile"
-                            />
-                          </Grid>
-                          <Grid item xs={9}>
-                            <CardContent className={classes.CardContent}>
-                              <Typography gutterBottom variant="h5">
-                                {article.title}
-                              </Typography>
-                              <Typography
+          {/* ここからPC/タブレット画面 */}
+          <Hidden xsDown implementation="css">
+            <Grid item>
+              {articles
+                .slice(0)
+                .reverse()
+                .map((article, index) => (
+                  <div key={index}>
+                    <Link to={`/Blog/${article.id}`}>
+                      <Card
+                        className={classes.card}
+                        elevation={0}
+                        variant="outlined"
+                      >
+                        <CardActionArea className={classes.CardActionArea}>
+                          <Typography
+                            gutterBottom
+                            variant="body1"
+                            className={classes.date}
+                          >
+                            {article.date}
+                          </Typography>
+                          <Grid container alignItems="center">
+                            <Grid item xs={3}>
+                              <CardMedia
+                                className={classes.media}
+                                image={article.sumnail}
+                                title="Contemplative Reptile"
+                              />
+                            </Grid>
+                            <Grid item xs={9}>
+                              <CardContent className={classes.CardContent}>
+                                <Typography gutterBottom variant="h5">
+                                  {article.title}
+                                </Typography>
+                                {/* <Typography
                                 gutterBottom
                                 variant="body2"
                                 color="textSecondary"
                                 component="p"
                               >
                                 #Machine Learning
-                              </Typography>
-                              <Typography variant="body2" component="p">
-                                Author:{article.author}
-                              </Typography>
-                            </CardContent>
+                              </Typography> */}
+                                <Typography variant="body2" component="p">
+                                  Author:{article.author}
+                                </Typography>
+                              </CardContent>
+                            </Grid>
                           </Grid>
-                        </Grid>
-                      </CardActionArea>
-                    </Card>
-                  </Link>
-                </div>
-              ))}
-          </Grid>
+                        </CardActionArea>
+                      </Card>
+                    </Link>
+                  </div>
+                ))}
+            </Grid>
+          </Hidden>
+          {/* ここからsp画面 */}
+          <Hidden smUp implementation="css">
+            <Grid item>
+              {articles
+                .slice(0)
+                .reverse()
+                .map((article, index) => (
+                  <div key={index}>
+                    <Link to={`/Blog/${article.id}`}>
+                      <Card
+                        className={classes.spCard}
+                        elevation={0}
+                        variant="outlined"
+                      >
+                        <CardActionArea className={classes.spCardActionArea}>
+                          <Typography
+                            gutterBottom
+                            variant="body2"
+                            className={classes.date}
+                          >
+                            {article.date}
+                          </Typography>
+                          <Grid container direction="column">
+                            <Grid item>
+                              <CardMedia
+                                className={classes.spMedia}
+                                image={article.sumnail}
+                                title="Contemplative Reptile"
+                              />
+                            </Grid>
+                            <Grid item>
+                              <CardContent className={classes.spCardContent}>
+                                <Typography gutterBottom variant="h6">
+                                  {article.title}
+                                </Typography>
+                                {/* <Typography
+                                gutterBottom
+                                variant="body2"
+                                color="textSecondary"
+                                component="p"
+                                >
+                                #Machine Learning
+                              </Typography> */}
+                                <Typography variant="body2" component="p">
+                                  Author:{article.author}
+                                </Typography>
+                              </CardContent>
+                            </Grid>
+                          </Grid>
+                        </CardActionArea>
+                      </Card>
+                    </Link>
+                  </div>
+                ))}
+            </Grid>
+          </Hidden>
           <Grid item>
             <TextField
               id="input-with-icon-textfield"
