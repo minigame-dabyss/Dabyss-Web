@@ -17,9 +17,10 @@ const useStyles = makeStyles((theme) => ({
     width: 150,
     height: 150,
   },
-  bottom: {
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
+  members: {
+    marginBottom: theme.spacing(2),
+    padding: theme.spacing(2),
+    justifyContent: "center",
   },
 }));
 
@@ -34,41 +35,35 @@ const Members = () => {
             <Box fontWeight="fontWeightBold">運営チーム</Box>
           </Typography>
         </Grid>
-        <Grid container className={classes.bottom}>
-          <Grid item xs={1}></Grid>
-          <Grid item xs={5}>
+        <Grid container className={classes.members}>
+          <Grid item>
             <Member
               image="./members/hanzawa.webp"
-              position="本部 営業第二部第一グループ 次長"
+              position="Engineer"
               name="半沢直樹"
             ></Member>
           </Grid>
-          <Grid item xs={5}>
+          <Grid item>
             <Member
               image="./members/oowada.jpeg"
-              position="取締役"
+              position="Engineer"
               name="大和田暁"
             ></Member>
           </Grid>
-          <Grid item xs={1}></Grid>
-        </Grid>
-        <Grid container className={classes.bottom}>
-          <Grid item xs={1}></Grid>
-          <Grid item xs={5}>
+          <Grid item>
             <Member
               image="./members/tomari.jpeg"
-              position="本部 融資部企画グループ 次長"
+              position="Designer"
               name="渡真利忍"
             ></Member>
           </Grid>
-          <Grid item xs={5}>
+          <Grid item>
             <Member
               image="./members/kurosaki.jpg"
-              position="金融庁監督局担当検査官"
+              position="Business"
               name="黒崎駿一"
             ></Member>
           </Grid>
-          <Grid item xs={1}></Grid>
         </Grid>
       </MuiThemeProvider>
     </div>
