@@ -31,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
   },
   games: {
     margin: theme.spacing(1),
-    // fontWeight: "bold",
   },
   blog: {
     margin: theme.spacing(1),

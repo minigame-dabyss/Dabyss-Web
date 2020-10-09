@@ -8,7 +8,6 @@ import { theme } from "../theme";
 
 import lineLogo from "../assets/line.png";
 import twiiterLogo from "../assets/twitter.png";
-import noteLogo from "../assets/note.svg";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -68,21 +67,20 @@ const Footer = () => {
               </Grid>
               <Grid item>
                 <Grid container direction="column">
-                  <a href="https://line.me/R/ti/p/@390zkjvc">
-                    <Button color="inherit" className={classes.line}>
-                      <img src={lineLogo} width="18"></img>
-                    </Button>
-                  </a>
-                  <a href="https://twitter.com/m_dabyss?s=20">
-                    <Button color="inherit" className={classes.twitter}>
-                      <img src={twiiterLogo} width="18"></img>
-                    </Button>
-                  </a>
-                  <a href="https://note.com/m_dabyss">
-                    <Button color="inherit" className={classes.note}>
-                      <img src={noteLogo}></img>
-                    </Button>
-                  </a>
+                  <Button
+                    href="https://line.me/R/ti/p/@390zkjvc"
+                    color="inherit"
+                    className={classes.line}
+                  >
+                    <img src={lineLogo} width="18"></img>
+                  </Button>
+                  <Button
+                    href="https://twitter.com/m_dabyss?s=20"
+                    color="inherit"
+                    className={classes.twitter}
+                  >
+                    <img src={twiiterLogo} width="18"></img>
+                  </Button>
                 </Grid>
               </Grid>
             </Grid>
