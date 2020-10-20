@@ -13,6 +13,7 @@ import {
   CardContent,
   CardMedia,
   Hidden,
+  Box,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 
@@ -21,6 +22,10 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "../../theme";
 
 const useStyles = makeStyles((theme) => ({
+  title: {
+    paddingTop: theme.spacing(4),
+    // paddingBottom: theme.spacing(4),
+  },
   root: {
     justifyContent: "center",
     marginTop: theme.spacing(2),
@@ -77,6 +82,11 @@ const Blog = () => {
   return (
     <div>
       <MuiThemeProvider theme={theme}>
+        <Grid container justify="center" className={classes.title}>
+          <Typography variant="h4">
+            <Box fontWeight="fontWeightBold">ブログ</Box>
+          </Typography>
+        </Grid>
         <Grid container className={classes.root}>
           {/* ここからPC/タブレット画面 */}
           <Hidden xsDown implementation="css">
