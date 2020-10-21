@@ -14,9 +14,11 @@ class HomeArticle(models.Model):
 
 class BlogArticle(models.Model):
     title = models.CharField(max_length=40)
+    # slug = models.CharField('URL', blank=False, max_length=20)
+    author = models.CharField('著者', blank=False, max_length=40)
     summary = models.TextField('概要', blank=False)
     text = MarkdownxField('本文', help_text='Markdown形式で書いてください。')
-    date = models.DateTimeField(blank=False)
+    date = models.DateField(blank=False)
     sumnail = models.ImageField(
         upload_to='blog_sumnail/',
         default="logo_Dabyss.png")
@@ -36,6 +38,3 @@ class GamesArticle(models.Model):
 
     def __str__(self):
         return self.title
-
-
-

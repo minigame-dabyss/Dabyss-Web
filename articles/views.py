@@ -1,15 +1,20 @@
+from rest_framework import generics
+
+from .models import BlogArticle, GamesArticle
+from .serializers import BlogArticleSerializer
+from .serializers import GamesArticleSerializer
+
 from django.shortcuts import render
-from .models import BlogArticle, HomeArticle, GamesArticle
 from django.views.generic import ListView, DetailView
 
 
-class HomeArticleView(ListView):
-    template_name = "home/listview.html"
-    model = HomeArticle
+# class HomeArticleView(ListView):
+#     template_name = "home/listview.html"
+#     model = HomeArticle
 
-    def get_queryset(self):
-        object_list = self.model.objects.all().filter(pk=1)
-        return object_list
+#     def get_queryset(self):
+#         object_list = self.model.objects.all().filter(pk=1)
+#         return object_list
 
 
 class BlogListView(ListView):
@@ -24,6 +29,26 @@ class BlogDetailView(DetailView):
     context_object_name = 'blog'
 
 
+class BlogListView(generics.ListCreateAPIView):
+    queryset = BlogArticle.objects.all()
+    serializer_class = BlogArticleSerializer
+
+
+class BlogDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = BlogArticle.objects.all()
+    serializer_class = BlogArticleSerializer
+
+
 class GameListView(ListView):
     template_name = "games/listview.html"
     model = GamesArticle
+
+
+class GameListView(generics.ListCreateAPIView):
+    queryset = GamesArticle.objects.all()
+    serializer_class = GamesArticleSerializer
+
+
+class GameDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = GamesArticle.objects.all()
+    serializer_class = GamesArticleSerializer
