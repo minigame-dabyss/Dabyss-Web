@@ -79,6 +79,14 @@ const Blog = () => {
     }
     fetchData();
   }, []);
+  // 日付順に並び替える
+  articles.sort(function (a, b) {
+    if (a.date < b.date) {
+      return -1;
+    } else {
+      return 1;
+    }
+  });
   return (
     <div>
       <MuiThemeProvider theme={theme}>
