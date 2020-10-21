@@ -13,7 +13,6 @@ import { theme } from "../../theme";
 const useStyles = makeStyles((theme) => ({
   title: {
     paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
   },
   card: {
     padding: theme.spacing(4),
