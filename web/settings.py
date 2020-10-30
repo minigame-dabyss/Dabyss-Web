@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'articles',
     'rest_framework',  # 追加
     'corsheaders',  # 追加
+    'web',
 ]
 # 追加
 REST_FRAMEWORK = {
@@ -112,8 +113,8 @@ DATABASES = {
         'NAME': 'dabyss-web',
         'USER': 'dabyss',
         'PASSWORD': 'dabyss',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }
 

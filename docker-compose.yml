@@ -1,0 +1,32 @@
+version: '3'
+services:
+  frontend:
+    command: /frontend/frontend.sh
+    build:
+      context: ./frontend
+    volumes:
+      - ./frontend:/frontend
+    ports:
+      - "3000:3000"
+    tty: true
+
+  backend:
+    command: /backend/backend.sh
+    build: .
+    volumes:
+      - .:/backend
+    tty: true
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: ./db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: dabyss
+      POSTGRES_PASSWORD: dabyss
+      POSTGRES_DB: dabyss-web
