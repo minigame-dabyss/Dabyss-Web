@@ -86,10 +86,10 @@ const Header = () => {
   const modal = (
     <div className={classes.paper}>
       <Grid container direction="column" alignItems="center">
-        <Link to="/Games" onClick={handleClose} className={classes.spGames}>
+        <Link to="/games" onClick={handleClose} className={classes.spGames}>
           ゲーム一覧
         </Link>
-        <Link to="/Blog" className={classes.spBlog} onClick={handleClose}>
+        <Link to="/blog" className={classes.spBlog} onClick={handleClose}>
           ブログ
         </Link>
         <Link className={classes.spContact} onClick={handleClose}>
@@ -119,12 +119,12 @@ const Header = () => {
             </Box>
             <Hidden xsDown implementation="css">
               <Box display="flex" justifyContent="flex-end">
-                <Link to="/Games" className={classes.games}>
+                <Link to="/games" className={classes.games}>
                   <Button color="inherit" className={classes.bold}>
                     ゲーム一覧
                   </Button>
                 </Link>
-                <Link to="/Blog" className={classes.blog}>
+                <Link to="/blog" className={classes.blog}>
                   <Button color="inherit" className={classes.bold}>
                     ブログ
                   </Button>

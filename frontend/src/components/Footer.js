@@ -50,12 +50,12 @@ const Footer = () => {
             <Grid container justify="space-around">
               <Grid item>
                 <Grid container direction="column" className={classes.left}>
-                  <Link to="/Games">
+                  <Link to="/games">
                     <Button color="inherit" className={classes.games}>
                       ゲーム一覧
                     </Button>
                   </Link>
-                  <Link to="/Blog">
+                  <Link to="/blog">
                     <Button color="inherit" className={classes.blog}>
                       ブログ
                     </Button>

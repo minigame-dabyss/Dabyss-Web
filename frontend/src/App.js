@@ -16,16 +16,16 @@ const App = () => {
       <div>
         <Header></Header>
         <Route exact path="/" component={Home} />
-        <Route exact path="/Games" component={Games} />
+        <Route exact path="/games" component={Games} />
         <Route
           exact
-          path="/Games/:id"
+          path="/games/:id"
           render={(props) => <GameArticle {...props} />}
         />
-        <Route exact path="/Blog" component={Blog} />
+        <Route exact path="/blog" component={Blog} />
         <Route
           exact
-          path="/Blog/:id"
+          path="/blog/:id"
           render={(props) => <BlogArticle {...props} />}
         />
         <Footer></Footer>

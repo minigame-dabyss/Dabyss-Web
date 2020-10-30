@@ -48,7 +48,7 @@ const TopGames = () => {
             .reverse()
             .map((game, index) => (
               <div key={index}>
-                <Link to={`/Games/${game.id}`}>
+                <Link to={`/games/${game.id}`}>
                   <Grid item className={classes.card}>
                     <GameCard
                       image={game.sumnail}
@@ -61,7 +61,7 @@ const TopGames = () => {
             ))}
         </Grid>
         <Grid container justify="center" className={classes.button}>
-          <Link to="/Games">
+          <Link to="/games">
             <Button variant="outlined" color="secondary">
               more
             </Button>

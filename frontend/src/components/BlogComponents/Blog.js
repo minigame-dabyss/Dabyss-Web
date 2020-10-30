@@ -104,7 +104,7 @@ const Blog = () => {
                 .reverse()
                 .map((article, index) => (
                   <div key={index}>
-                    <Link to={`/Blog/${article.id}`}>
+                    <Link to={`/blog/${article.id}`}>
                       <Card
                         className={classes.card}
                         elevation={0}
@@ -160,7 +160,7 @@ const Blog = () => {
                 .reverse()
                 .map((article, index) => (
                   <div key={index}>
-                    <Link to={`/Blog/${article.id}`}>
+                    <Link to={`/blog/${article.id}`}>
                       <Card
                         className={classes.spCard}
                         elevation={0}

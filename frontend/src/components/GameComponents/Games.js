@@ -42,7 +42,7 @@ const Games = () => {
         <Grid container justify="center">
           {games.map((game, index) => (
             <div key={index}>
-              <Link to={`/Games/${game.id}`}>
+              <Link to={`/games/${game.id}`}>
                 <Grid item className={classes.card}>
                   <GameCard
                     image={game.sumnail}
