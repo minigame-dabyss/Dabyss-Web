@@ -9,7 +9,6 @@ done
 
 >&2 echo "Postgres is up - executing command"
 
-python manage.py collectstatic --clear --noinput
 python manage.py makemigrations
 python manage.py migrate
 
