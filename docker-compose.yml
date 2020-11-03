@@ -1,0 +1,46 @@
+version: '3'
+services:
+  frontend:
+    command: /frontend/frontend.sh
+    image: 126640255293.dkr.ecr.ap-northeast-1.amazonaws.com/dabyss-web-frontend:latest
+    build:
+      context: ./frontend
+    volumes:
+      - ./frontend:/frontend
+    ports:
+      - "3000:3000"
+    tty: true
+
+  backend:
+    command: /backend/backend.sh
+    image: 126640255293.dkr.ecr.ap-northeast-1.amazonaws.com/dabyss-web-backend:latest
+    build: .
+    volumes:
+      - .:/backend
+    tty: true
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: ./db
+    image: 126640255293.dkr.ecr.ap-northeast-1.amazonaws.com/dabyss-web-db:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: dabyss
+      POSTGRES_PASSWORD: dabyss
+      POSTGRES_DB: dabyss-web
+
+  proxy:
+    image: nginx:1.13.3-alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./web/static:/static
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+      - frontend

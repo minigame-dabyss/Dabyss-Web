@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   inputRoot: {
     marginLeft: theme.spacing(6),
+    marginTop: theme.spacing(2),
   },
   card: {
     width: 740,
@@ -62,9 +63,6 @@ const useStyles = makeStyles((theme) => ({
   spCardContent: {
     padding: theme.spacing(0),
     paddingTop: theme.spacing(2),
-  },
-  inputRoot: {
-    marginTop: theme.spacing(2),
   },
 }));
 

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'articles',
     'rest_framework',  # 追加
     'corsheaders',  # 追加
+    'web',
 ]
 # 追加
 REST_FRAMEWORK = {
@@ -112,8 +113,8 @@ DATABASES = {
         'NAME': 'dabyss-web',
         'USER': 'dabyss',
         'PASSWORD': 'dabyss',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': 'db',
+        'PORT': '5432',
     }
 }
 
@@ -158,10 +159,11 @@ DATABASES['default'].update(db_from_env)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = '/static'
 STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "static")
 ]
