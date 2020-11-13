@@ -24,12 +24,6 @@ import { theme } from "../../theme";
 const useStyles = makeStyles((theme) => ({
   title: {
     paddingTop: theme.spacing(4),
-    // paddingBottom: theme.spacing(4),
-  },
-  root: {
-    justifyContent: "center",
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
   },
   inputRoot: {
     marginLeft: theme.spacing(6),
@@ -93,7 +87,7 @@ const Blog = () => {
             <Box fontWeight="fontWeightBold">ブログ</Box>
           </Typography>
         </Grid>
-        <Grid container className={classes.root}>
+        <Grid container>
           {/* ここからPC/タブレット画面 */}
           <Hidden xsDown implementation="css">
             <Grid item>
@@ -135,7 +129,7 @@ const Blog = () => {
                                 color="textSecondary"
                                 component="p"
                               >
-                                #Machine Learning
+                                #タグ名
                               </Typography> */}
                                 <Typography variant="body2" component="p">
                                   Author:{article.author}
@@ -191,7 +185,7 @@ const Blog = () => {
                                 color="textSecondary"
                                 component="p"
                                 >
-                                #Machine Learning
+                                #タグ名
                               </Typography> */}
                                 <Typography variant="body2" component="p">
                                   Author:{article.author}
@@ -206,6 +200,7 @@ const Blog = () => {
                 ))}
             </Grid>
           </Hidden>
+          {/* サーチボックス
           <Grid item>
             <TextField
               id="input-with-icon-textfield"
@@ -220,7 +215,7 @@ const Blog = () => {
                 ),
               }}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </MuiThemeProvider>
     </div>

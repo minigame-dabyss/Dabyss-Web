@@ -9,7 +9,7 @@ class Home extends React.Component {
       <div>
         <Hero></Hero>
         <TopGames></TopGames>
-        <Members></Members>
+        {/* <Members></Members> */}
       </div>
     );
   }
