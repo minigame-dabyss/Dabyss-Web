@@ -78,9 +78,9 @@ const Footer = () => {
                       プライバシーポリシー
                     </Button>
                   </Link>
-                  <Link to="/blog">
+                  <Link to="/terms">
                     <Button color="inherit" className={classes.blog}>
-                      ブログ
+                      利用規約
                     </Button>
                   </Link>
                 </Grid>
