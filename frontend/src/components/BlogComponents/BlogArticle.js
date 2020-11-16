@@ -77,7 +77,7 @@ const BlogArticle = (props) => {
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get(
-        `http://process.env.apiUrl:8000/api/blog/${props.match.params.id}/`
+        `${process.env.apiUrl}:8000/api/blog/${props.match.params.id}/`
       );
       console.log(res.data);
       setArticles(res.data);
