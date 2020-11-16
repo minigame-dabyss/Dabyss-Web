@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   line: {
     height: 48,
+    marginRight: theme.spacing(3),
   },
   twitter: {
     height: 48,
@@ -71,7 +72,19 @@ const Footer = () => {
                 </Grid>
               </Grid>
               <Grid item>
-                <Grid container direction="column">
+                <Grid container direction="column" alignItems="center">
+                  <Link to="/privacy-policy">
+                    <Button color="inherit" className={classes.games}>
+                      プライバシーポリシー
+                    </Button>
+                  </Link>
+                  <Link to="/blog">
+                    <Button color="inherit" className={classes.blog}>
+                      ブログ
+                    </Button>
+                  </Link>
+                </Grid>
+                <Grid container direction="row">
                   <Button
                     href="https://line.me/R/ti/p/@390zkjvc"
                     color="inherit"

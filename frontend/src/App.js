@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 
 import Home from "./components/HomeComponents/Home";
 import Games from "./components/GameComponents/Games";
@@ -27,6 +28,11 @@ const App = () => {
           exact
           path="/blog/:id"
           render={(props) => <BlogArticle {...props} />}
+        />
+        <Route
+          exact
+          path="/privacy-policy"
+          component={PrivacyPolicy}
         />
         <Footer></Footer>
       </div>
