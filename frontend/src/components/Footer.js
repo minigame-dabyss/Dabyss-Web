@@ -60,9 +60,14 @@ const Footer = () => {
                       ブログ
                     </Button>
                   </Link>
-                  <Button color="inherit" className={classes.contact}>
-                    お問い合わせ
-                  </Button>
+                  <a
+                    href="https://forms.gle/5tsJoqUgcJyGoiLYA"
+                    className={classes.contact}
+                  >
+                    <Button color="inherit" className={classes.contact}>
+                      お問い合わせ
+                    </Button>
+                  </a>
                 </Grid>
               </Grid>
               <Grid item>

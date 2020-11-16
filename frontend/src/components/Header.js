@@ -92,9 +92,13 @@ const Header = () => {
         <Link to="/blog" className={classes.spBlog} onClick={handleClose}>
           ブログ
         </Link>
-        <Link className={classes.spContact} onClick={handleClose}>
+        <a
+          href="https://forms.gle/5tsJoqUgcJyGoiLYA"
+          className={classes.spContact}
+          onClick={handleClose}
+        >
           お問い合わせ
-        </Link>
+        </a>
         <Button color="inherit" className={classes.close} onClick={handleClose}>
           Close
         </Button>
@@ -129,11 +133,14 @@ const Header = () => {
                     ブログ
                   </Button>
                 </Link>
-                <Link className={classes.contact}>
+                <a
+                  href="https://forms.gle/5tsJoqUgcJyGoiLYA"
+                  className={classes.contact}
+                >
                   <Button color="inherit" className={classes.bold}>
                     お問い合わせ
                   </Button>
-                </Link>
+                </a>
               </Box>
             </Hidden>
             <Hidden smUp implementation="css">
