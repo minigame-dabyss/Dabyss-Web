@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 import {
   Grid,
-  TextField,
-  InputAdornment,
+  // TextField,
+  // InputAdornment,
   Typography,
   Card,
   CardActionArea,
@@ -15,7 +15,7 @@ import {
   Hidden,
   Box,
 } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
+// import SearchIcon from "@material-ui/icons/Search";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { MuiThemeProvider } from "@material-ui/core/styles";

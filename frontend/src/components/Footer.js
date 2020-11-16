@@ -90,14 +90,22 @@ const Footer = () => {
                     color="inherit"
                     className={classes.line}
                   >
-                    <img src={lineLogo} width="18"></img>
+                    <img
+                      src={lineLogo}
+                      alt="lineアカウントのリンク"
+                      width="18"
+                    ></img>
                   </Button>
                   <Button
                     href="https://twitter.com/m_dabyss?s=20"
                     color="inherit"
                     className={classes.twitter}
                   >
-                    <img src={twiiterLogo} width="18"></img>
+                    <img
+                      src={twiiterLogo}
+                      alt="twitterアカウントのリンク"
+                      width="18"
+                    ></img>
                   </Button>
                 </Grid>
               </Grid>

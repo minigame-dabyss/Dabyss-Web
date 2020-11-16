@@ -114,7 +114,7 @@ const Header = () => {
             <Box display="flex" justifyContent="flex-start" flexGrow={1}>
               <Link to="/">
                 <Grid container alignItems="center">
-                  <img src={logoSrc} className={classes.logo} />
+                  <img src={logoSrc} alt="Dabyss" className={classes.logo} />
                   <Typography variant="h6" className={classes.title}>
                     MinigameDabyss
                   </Typography>

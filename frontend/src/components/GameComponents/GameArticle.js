@@ -79,7 +79,7 @@ const GameArticle = (props) => {
       setGames(res.data);
     }
     fetchData();
-  }, []);
+  }, [props.match.params.id]);
   const markdown = games.text;
 
   return (
@@ -91,7 +91,11 @@ const GameArticle = (props) => {
             <Typography variant="h3" className={classes.title}>
               {games.title}
             </Typography>
-            <img src={games.sumnail} className={classes.img}></img>
+            <img
+              src={games.sumnail}
+              alt="ゲームのサムネイル"
+              className={classes.img}
+            ></img>
             <ReactMarkdown source={markdown} className={classes.text} />
           </Grid>
         </MuiThemeProvider>
@@ -103,7 +107,11 @@ const GameArticle = (props) => {
             <Typography variant="h5" className={classes.title}>
               {games.title}
             </Typography>
-            <img src={games.sumnail} className={classes.img}></img>
+            <img
+              src={games.sumnail}
+              alt="ゲームのサムネイル"
+              className={classes.img}
+            ></img>
             <ReactMarkdown source={markdown} className={classes.SPtext} />
           </Grid>
         </MuiThemeProvider>

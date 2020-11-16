@@ -1,7 +1,7 @@
 import React from "react";
 import TopGames from "./TopGames";
 import Hero from "./Hero";
-import Members from "./Members";
+// import Members from "./Members";
 
 class Home extends React.Component {
   render() {
