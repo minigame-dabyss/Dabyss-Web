@@ -24,7 +24,7 @@ const Games = () => {
   const [games, setGames] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get(`${process.env.apiUrl}:8000/api/games/`);
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}:8000/api/games/`);
       console.log(res.data);
       setGames(res.data);
     }
