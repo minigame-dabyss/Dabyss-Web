@@ -77,13 +77,13 @@ const BlogArticle = (props) => {
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get(
-        `http://localhost:8000/api/blog/${props.match.params.id}/`
+        `${process.env.REACT_APP_API_URL}:8000/api/blog/${props.match.params.id}/`
       );
       console.log(res.data);
       setArticles(res.data);
     }
     fetchData();
-  }, []);
+  }, [props.match.params.id]);
   const markdown = articles.text;
   return (
     <div>
@@ -100,7 +100,11 @@ const BlogArticle = (props) => {
             <Typography variant="body1" className={classes.author}>
               Author:{articles.author}
             </Typography>
-            <img src={articles.sumnail} className={classes.img}></img>
+            <img
+              src={articles.sumnail}
+              alt="ブログのサムネイル"
+              className={classes.img}
+            ></img>
             <ReactMarkdown
               source={markdown}
               className={classes.PCtext}
@@ -122,7 +126,11 @@ const BlogArticle = (props) => {
             <Typography variant="body2" className={classes.author}>
               Author:{articles.author}
             </Typography>
-            <img src={articles.sumnail} className={classes.img}></img>
+            <img
+              src={articles.sumnail}
+              alt="ブログのサムネイル"
+              className={classes.img}
+            ></img>
             <ReactMarkdown
               source={markdown}
               className={classes.SPtext}

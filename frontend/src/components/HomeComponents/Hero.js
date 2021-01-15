@@ -113,7 +113,7 @@ const Hero = () => {
             </Grid>
           </Grid>
           <Grid item className={classes.heroBottom}>
-            <img src="./screen.png" className={classes.screen}></img>
+            <img src="./screen.png" alt="プレイ画面" className={classes.screen}></img>
           </Grid>
         </Grid>
       </MuiThemeProvider>

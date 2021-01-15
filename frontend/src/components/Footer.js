@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
   line: {
     height: 48,
+    marginRight: theme.spacing(3),
   },
   twitter: {
     height: 48,
@@ -60,26 +61,51 @@ const Footer = () => {
                       ブログ
                     </Button>
                   </Link>
-                  <Button color="inherit" className={classes.contact}>
-                    お問い合わせ
-                  </Button>
+                  <a
+                    href="https://forms.gle/5tsJoqUgcJyGoiLYA"
+                    className={classes.contact}
+                  >
+                    <Button color="inherit" className={classes.contact}>
+                      お問い合わせ
+                    </Button>
+                  </a>
                 </Grid>
               </Grid>
               <Grid item>
-                <Grid container direction="column">
+                <Grid container direction="column" alignItems="center">
+                  <Link to="/privacy-policy">
+                    <Button color="inherit" className={classes.games}>
+                      プライバシーポリシー
+                    </Button>
+                  </Link>
+                  <Link to="/terms">
+                    <Button color="inherit" className={classes.blog}>
+                      利用規約
+                    </Button>
+                  </Link>
+                </Grid>
+                <Grid container direction="row">
                   <Button
                     href="https://line.me/R/ti/p/@390zkjvc"
                     color="inherit"
                     className={classes.line}
                   >
-                    <img src={lineLogo} width="18"></img>
+                    <img
+                      src={lineLogo}
+                      alt="lineアカウントのリンク"
+                      width="18"
+                    ></img>
                   </Button>
                   <Button
                     href="https://twitter.com/m_dabyss?s=20"
                     color="inherit"
                     className={classes.twitter}
                   >
-                    <img src={twiiterLogo} width="18"></img>
+                    <img
+                      src={twiiterLogo}
+                      alt="twitterアカウントのリンク"
+                      width="18"
+                    ></img>
                   </Button>
                 </Grid>
               </Grid>

@@ -2,9 +2,11 @@ version: '3'
 services:
   frontend:
     command: /frontend/frontend.sh
-    image: 126640255293.dkr.ecr.ap-northeast-1.amazonaws.com/dabyss-web-frontend:latest
+#    image: 126640255293.dkr.ecr.ap-northeast-1.amazonaws.com/dabyss-web-frontend:latest
     build:
       context: ./frontend
+      args:
+        - REACT_APP_API_URL=http://localhost
     volumes:
       - ./frontend:/frontend
     ports:
@@ -13,20 +15,22 @@ services:
 
   backend:
     command: /backend/backend.sh
-    image: 126640255293.dkr.ecr.ap-northeast-1.amazonaws.com/dabyss-web-backend:latest
+#    image: 126640255293.dkr.ecr.ap-northeast-1.amazonaws.com/dabyss-web-backend:latest
     build: .
     volumes:
       - .:/backend
     tty: true
     ports:
       - "8000:8000"
+    environment:
+      frontendUrl: http://localhost
     depends_on:
       - db
 
   db:
     build:
       context: ./db
-    image: 126640255293.dkr.ecr.ap-northeast-1.amazonaws.com/dabyss-web-db:latest
+#    image: 126640255293.dkr.ecr.ap-northeast-1.amazonaws.com/dabyss-web-db:latest
     ports:
       - "5432:5432"
     environment:

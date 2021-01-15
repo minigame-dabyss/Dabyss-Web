@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 import {
   Grid,
-  TextField,
-  InputAdornment,
+  // TextField,
+  // InputAdornment,
   Typography,
   Card,
   CardActionArea,
@@ -15,7 +15,7 @@ import {
   Hidden,
   Box,
 } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
+// import SearchIcon from "@material-ui/icons/Search";
 
 import { makeStyles } from "@material-ui/core/styles";
 import { MuiThemeProvider } from "@material-ui/core/styles";
@@ -24,12 +24,6 @@ import { theme } from "../../theme";
 const useStyles = makeStyles((theme) => ({
   title: {
     paddingTop: theme.spacing(4),
-    // paddingBottom: theme.spacing(4),
-  },
-  root: {
-    justifyContent: "center",
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
   },
   inputRoot: {
     marginLeft: theme.spacing(6),
@@ -71,7 +65,7 @@ const Blog = () => {
   const [articles, setArticles] = useState([]);
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get("http://localhost:8000/api/blog/");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}:8000/api/blog/`);
       console.log(res.data);
       setArticles(res.data);
     }
@@ -93,7 +87,7 @@ const Blog = () => {
             <Box fontWeight="fontWeightBold">ブログ</Box>
           </Typography>
         </Grid>
-        <Grid container className={classes.root}>
+        <Grid container>
           {/* ここからPC/タブレット画面 */}
           <Hidden xsDown implementation="css">
             <Grid item>
@@ -135,7 +129,7 @@ const Blog = () => {
                                 color="textSecondary"
                                 component="p"
                               >
-                                #Machine Learning
+                                #タグ名
                               </Typography> */}
                                 <Typography variant="body2" component="p">
                                   Author:{article.author}
@@ -191,7 +185,7 @@ const Blog = () => {
                                 color="textSecondary"
                                 component="p"
                                 >
-                                #Machine Learning
+                                #タグ名
                               </Typography> */}
                                 <Typography variant="body2" component="p">
                                   Author:{article.author}
@@ -206,6 +200,7 @@ const Blog = () => {
                 ))}
             </Grid>
           </Hidden>
+          {/* サーチボックス
           <Grid item>
             <TextField
               id="input-with-icon-textfield"
@@ -220,7 +215,7 @@ const Blog = () => {
                 ),
               }}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </MuiThemeProvider>
     </div>
