@@ -73,7 +73,7 @@ const GameArticle = (props) => {
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}:8000/api/games/${props.match.params.id}`
+        `${process.env.REACT_APP_API_URL}/api/games/${props.match.params.id}`
       );
       console.log(res.data);
       setGames(res.data);
