@@ -31,7 +31,7 @@ except ImportError:
     pass
 
 if not DEBUG:
-    SECRET_KEY = os.environ['SECRET_KEY']
+    SECRET_KEY = "test"
 
 ALLOWED_HOSTS = ["*"]
 
