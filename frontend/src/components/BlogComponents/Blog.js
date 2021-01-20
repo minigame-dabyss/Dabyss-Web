@@ -114,7 +114,7 @@ const Blog = () => {
                             <Grid item xs={3}>
                               <CardMedia
                                 className={classes.media}
-                                image={require(`../../assets${article.sumnail.replace(process.env.REACT_APP_API_URL,"")}`)}
+                                image={require(`../../assets${article.sumnail.replace(process.env.REACT_APP_PREFIX,"")}`)}
                                 title="Contemplative Reptile"
                               />
                             </Grid>
